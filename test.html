@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="test.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class=" md:w-[768px] h-[100vh] m-auto flex flex-col justify-evenly items-center border-l-4 border-r-4 border-gray-700 border-solid bg-slate-100">
+        <div class="w-full max-w-[768px] flex justify-between fixed top-0 px-8 py-4">
+            <p id="score" class="border-b border-solid border-black">Votre Score : 0</p>
+            <p id="a-score" class="border-b border-solid border-black">Score Adverse : 0</p>
+        </div>
+        <p id="rps" class="m-4 p-4 border border-solid border-slate-600 bg-gray-300 text-center">Pierre-papier-ciseaux !</br>Combien de manches gagnantes ?</p>
+        <div>
+            <button id="bo1" class="border-2 border-solid border-slate-700 rounded-lg p-2 pt-1 bg-gray-300">1 Gagnante</button>
+            <button id="bo3" class="border-2 border-solid border-slate-700 rounded-lg ml-4 mr-2 p-2 pt-1 bg-gray-300">2 Gagnantes</button>
+            <button id="bo5" class="border-2 border-solid border-slate-700 rounded-lg ml-2 mr-4 p-2 pt-1 bg-gray-300">3 Gagnantes</button>
+            <button id="bo9" class="border-2 border-solid border-slate-700 rounded-lg p-2 pt-1 bg-gray-300">5 Gagnantes</button>
+            <button id="r" class="border-2 border-solid border-slate-700 rounded-lg p-2 pt-1 bg-gray-300 hidden">Pierre</button>
+            <button id="p" class="border-2 border-solid border-slate-700 rounded-lg mx-4 p-2 pt-1 bg-gray-300 hidden">Papier</button>
+            <button id="s" class="border-2 border-solid border-slate-700 rounded-lg p-2 pt-1 bg-gray-300 hidden">Ciseaux</button>
+            <button id="ok" class="hidden border-2 border-solid border-slate-700 rounded-lg p-2 pt-1 bg-gray-300">OK</button>
+            <button id="replay" class="hidden border-2 border-solid border-slate-700 rounded-lg p-2 pt-1 bg-gray-300">Rejouer !</button>
+        </div>
+        <img src="winner.gif" id="reward" class="hidden fixed top-[26rem] z-30">
+        <img src="rick-astley.gif" id="rick-gif" class="hidden fixed center w-full">
+        <img src="you-died.gif" id="you-died" class="hidden fixed top-[20rem] h-[10rem]">
+        <button id="stop-it" class="hidden h-4 w-4 bg-slate-100 fixed z-30 right-0 bottom-0"></button>
+    </div>
+</body>
+</html>
