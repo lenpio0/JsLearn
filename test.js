@@ -18,9 +18,6 @@ let rick = document.getElementById('rick');
 let rickGif = document.getElementById('rick-gif');
 let stopIt = document.getElementById('stop-it');
 let youDied = document.getElementById('you-died');
-const rickRoll = new Audio(
-    "never-gonna.mp3"
-  );  
 
 r.onclick = rock;
 p.onclick = paper;
@@ -128,7 +125,10 @@ function rock() {
         reward.classList.remove('hidden');
         rickGif.classList.remove('hidden');
         stopIt.classList.remove('hidden');
-          rickRoll.play();
+        const audio = new Audio(
+            "never-gonna.mp3"
+          );        
+          audio.play();
 
     }
     if (hisScore == win) {
@@ -203,8 +203,10 @@ function paper() {
         reward.classList.remove('hidden');
         rickGif.classList.remove('hidden');
         stopIt.classList.remove('hidden');
-      
-          rickRoll.play();
+        const audio = new Audio(
+            "never-gonna.mp3"
+          );        
+          audio.play();
     }
     if (hisScore == win) {
         let result = 0
@@ -278,7 +280,10 @@ function scissors() {
         reward.classList.remove('hidden');
         rickGif.classList.remove('hidden');
         stopIt.classList.remove('hidden');
-          rickRoll.play();
+        const audio = new Audio(
+            "never-gonna.mp3"
+          );        
+          audio.play();
     }
     if (hisScore == win) {
         let result = 0
@@ -340,8 +345,7 @@ function plzStop() {
     rickGif.classList.add('hidden');
     stopIt.classList.add('hidden');
     reward.classList.add('hidden');
-    rickRoll.pause();
-    rickRoll.currentTime = 0;
+    audio.pause();
 }
 // 0 rock
 // 1 paper
