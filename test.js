@@ -90,146 +90,18 @@ function rock() {
     p.classList.add('hidden');
     s.classList.add('hidden');
     ok.classList.remove('hidden');
-    switch (rival) {
-        case 0:
+    if (rival == 0) {
             rps.innerHTML = 'Pierre !</br>Rejouez :O';
-            yourScore ++;
-            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-            break;
-        case 1:
+    }
+    else if (rival == 1) {
             rps.innerHTML = 'Papier !</br>Point pour moi >:)';
-            break;
-        case 2:
-            rps.innerHTML = 'Ciseaux !</br>Point pour toi \\o/';
             hisScore ++;
             hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-            break;
-        default:
-            rps.innerHTML = "Erreur dans le switch :'(";
-            break;
     }
-    if (yourScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>gg t'as gagné !";
-    }
-    if (hisScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
-    }
-}
-
-function paper() {
-    let rival = Math.floor(Math.random() * 3);
-    r.classList.add('hidden');
-    p.classList.add('hidden');
-    s.classList.add('hidden');
-    ok.classList.remove('hidden');
-    switch (rival) {
-        case 0:
-            rps.innerHTML = 'Pierre !</br>Point pour toi \\o/';
-            yourScore ++;
-            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-            break;
-        case 1:
-            rps.innerHTML = 'Papier !</br>Rejouez :O';
-            break;
-        case 2:
-            rps.innerHTML = 'Ciseaux !</br>Point pour moi >:)';
-            hisScore ++;
-            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-            break;
-        default:
-            rps.innerHTML = "Erreur dans le switch :'(";
-            break;
-    }
-    if (yourScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>gg t'as gagné !";
-    }
-    if (hisScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
-    }
-}
-
-function scissors() {
-    let rival = Math.floor(Math.random() * 3);
-    r.classList.add('hidden');
-    p.classList.add('hidden');
-    s.classList.add('hidden');
-    ok.classList.remove('hidden');
-    switch (rival) {
-        case 0:
-            rps.innerHTML = 'Pierre !</br>Point pour moi >:)';
-            hisScore ++;
-            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-            break;
-        case 1:
-            rps.innerHTML = 'Papier !</br>Point pour toi \\o/';
-            yourScore ++;
-            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-            break;
-        case 2:
-            rps.innerHTML = 'Ciseaux !</br>Rejouez :O';
-            break;
-        default:
-            rps.innerHTML = "Erreur dans le switch :'(";
+    else if (rival == 2) {
+        rps.innerHTML = ' Ciseaux !</br>Point pour toi \\o/';
+        yourScore ++;
+        yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
     }
     if (yourScore == win) {
         let result = 0
@@ -262,7 +134,121 @@ function scissors() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
+                break;
+        }
+        rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
+    }
+}
+
+function paper() {
+    let rival = Math.floor(Math.random() * 3);
+    r.classList.add('hidden');
+    p.classList.add('hidden');
+    s.classList.add('hidden');
+    ok.classList.remove('hidden');
+    if (rival == 0) {
+            rps.innerHTML = 'Pierre !</br>Point pour toi \\o/';
+            yourScore ++;
+            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
+    }
+    else if (rival == 1) {
+            rps.innerHTML = 'Papier !</br>Rejouez :O';
+    }
+    else if (rival == 2) {
+            rps.innerHTML = 'Ciseaux !</br>Point pour moi >:)';
+            hisScore ++;
+            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
+    }
+    if (yourScore == win) {
+        let result = 0
+        switch (rival) {
+            case 0:
+                result = 'Pierre';
+                break;
+            case 1:
+                result = 'Papier';
+                break;
+            case 2:
+                result = 'Ciseaux';
+                break;
+            default:
+                result = "Erreur dans le switch :'(";
+                break;
+        }
+        rps.innerHTML = result + " !</br>gg t'as gagné !";
+    }
+    if (hisScore == win) {
+        let result = 0
+        switch (rival) {
+            case 0:
+                result = 'Pierre';
+                break;
+            case 1:
+                result = 'Papier';
+                break;
+            case 2:
+                result = 'Ciseaux';
+                break;
+            default:
+                result = "Erreur dans le switch :'(";
+                break;
+        }
+        rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
+    }
+}
+
+function scissors() {
+    let rival = Math.floor(Math.random() * 3);
+    r.classList.add('hidden');
+    p.classList.add('hidden');
+    s.classList.add('hidden');
+    ok.classList.remove('hidden');
+    if (rival == 0) {
+            rps.innerHTML = 'Pierre !</br>Point pour moi >:)';
+            hisScore ++;
+            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
+    }
+    else if (rival == 1) {
+            rps.innerHTML = 'Papier !</br>Point pour toi \\o/';
+            yourScore ++;
+            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
+    }
+    else if (rival == 2) {
+            rps.innerHTML = 'Ciseaux !</br>Rejouez :O';
+    }
+    if (yourScore == win) {
+        let result = 0
+        switch (rival) {
+            case 0:
+                result = 'Pierre';
+                break;
+            case 1:
+                result = 'Papier';
+                break;
+            case 2:
+                result = 'Ciseaux';
+                break;
+            default:
+                result = "Erreur dans le switch :'(";
+                break;
+        }
+        rps.innerHTML = result + " !</br>gg t'as gagné !";
+    }
+    if (hisScore == win) {
+        let result = 0
+        switch (rival) {
+            case 0:
+                result = 'Pierre';
+                break;
+            case 1:
+                result = 'Papier';
+                break;
+            case 2:
+                result = 'Ciseaux';
+                break;
+            default:
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
@@ -296,3 +282,4 @@ function again() {
     yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
     hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
 }
+
