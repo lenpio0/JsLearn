@@ -113,7 +113,7 @@ function rock() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>gg t'as gagné t'es trop un bg (ou une bg hein je suis un jeu progressiste)";
@@ -136,7 +136,7 @@ function rock() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>Booouh t'as perdu cheh";
@@ -176,7 +176,7 @@ function paper() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>gg t'as gagné t'es trop un bg (ou une bg hein je suis un jeu progressiste)";
@@ -199,7 +199,7 @@ function paper() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>Booouh t'as perdu cheh";
@@ -239,7 +239,7 @@ function scissors() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>gg t'as gagné t'es trop un bg (ou une bg hein je suis un jeu progressiste)";
@@ -261,7 +261,7 @@ function scissors() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>Booouh t'as perdu cheh";
