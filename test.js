@@ -83,24 +83,20 @@ function BO9() {
 
 function rock() {
     let rival = Math.floor(Math.random() * 3);
+    r.classList.add('hidden');
+    p.classList.add('hidden');
+    s.classList.add('hidden');
+    ok.classList.remove('hidden');
     if (rival == 0) {
         rps.innerHTML = 'Pierre !</br>Rejouez';
     }
     else if (rival == 1) {
         rps.innerHTML = 'Papier !</br>Point pour moi >:)';
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         hisScore ++;
         hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
     }
     else if (rival == 2) {
         rps.innerHTML = ' Ciseaux !</br>Point pour toi \\o/';
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         yourScore ++;
         yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
     }
@@ -121,10 +117,6 @@ function rock() {
                 break;
         }
         rps.innerHTML = result + " !</br>gg t'as gagné t'es trop un bg (ou une bg hein je suis un jeu progressiste)";
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         reward.classList.remove('hidden');
         rickGif.classList.remove('hidden');
         stopIt.classList.remove('hidden');
@@ -148,22 +140,18 @@ function rock() {
                 break;
         }
         rps.innerHTML = result + " !</br>Booouh t'as perdu cheh";
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         youDied.classList.remove('hidden');
     }
 }
 
 function paper() {
     let rival = Math.floor(Math.random() * 3);
+    r.classList.add('hidden');
+    p.classList.add('hidden');
+    s.classList.add('hidden');
+    ok.classList.remove('hidden');
     if (rival == 0) {
         rps.innerHTML = 'Pierre !</br>Point pour toi \\o/';
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         yourScore ++;
         yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
     }
@@ -172,10 +160,6 @@ function paper() {
     }
     else if (rival == 2) {
         rps.innerHTML = 'Ciseaux !</br>Point pour moi >:)';
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         hisScore ++;
         hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
     }
@@ -196,10 +180,6 @@ function paper() {
                 break;
         }
         rps.innerHTML = result + " !</br>gg t'as gagné t'es trop un bg (ou une bg hein je suis un jeu progressiste)";
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         reward.classList.remove('hidden');
         rickGif.classList.remove('hidden');
         stopIt.classList.remove('hidden');
@@ -223,31 +203,23 @@ function paper() {
                 break;
         }
         rps.innerHTML = result + " !</br>Booouh t'as perdu cheh";
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         youDied.classList.remove('hidden');
     }
 }
 
 function scissors() {
     let rival = Math.floor(Math.random() * 3);
+    r.classList.add('hidden');
+    p.classList.add('hidden');
+    s.classList.add('hidden');
+    ok.classList.remove('hidden');
     if (rival == 0) {
         rps.innerHTML = 'Pierre !</br>Point pour moi >:)';
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         hisScore ++;
         hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
     }
     else if (rival == 1) {
         rps.innerHTML = 'Papier !</br>Point pour toi \\o/';
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         yourScore ++;
         yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
     }
@@ -271,10 +243,6 @@ function scissors() {
                 break;
         }
         rps.innerHTML = result + " !</br>gg t'as gagné t'es trop un bg (ou une bg hein je suis un jeu progressiste)";
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         reward.classList.remove('hidden');
         rickGif.classList.remove('hidden');
         stopIt.classList.remove('hidden');
@@ -297,10 +265,6 @@ function scissors() {
                 break;
         }
         rps.innerHTML = result + " !</br>Booouh t'as perdu cheh";
-        r.classList.add('hidden');
-        p.classList.add('hidden');
-        s.classList.add('hidden');
-        ok.classList.remove('hidden');
         youDied.classList.remove('hidden');
     }
 }
