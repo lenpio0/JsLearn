@@ -89,19 +89,24 @@ function rock() {
     r.classList.add('hidden');
     p.classList.add('hidden');
     s.classList.add('hidden');
-    ok.classList.remove('hidden'); 
-    if (rival == 0) {
-        rps.innerHTML = 'Pierre !</br>Rejouez :O';
-    }
-    else if (rival == 1) {
-        rps.innerHTML = 'Papier !</br>Point pour moi >:)';
-        hisScore ++;
-        hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-    }
-    else if (rival == 2) {
-        rps.innerHTML = ' Ciseaux !</br>Point pour toi \\o/';
-        yourScore ++;
-        yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
+    ok.classList.remove('hidden');
+    switch (rival) {
+        case 0:
+            rps.innerHTML = 'Pierre !</br>Rejouez :O';
+            yourScore ++;
+            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
+            break;
+        case 1:
+            rps.innerHTML = 'Papier !</br>Point pour moi >:)';
+            break;
+        case 2:
+            rps.innerHTML = 'Ciseaux !</br>Point pour toi \\o/';
+            hisScore ++;
+            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
+            break;
+        default:
+            rps.innerHTML = "Erreur dans le switch :'(";
+            break;
     }
     if (yourScore == win) {
         let result = 0
@@ -147,18 +152,23 @@ function paper() {
     p.classList.add('hidden');
     s.classList.add('hidden');
     ok.classList.remove('hidden');
-    if (rival == 0) {
-        rps.innerHTML = 'Pierre !</br>Point pour toi \\o/';
-        yourScore ++;
-        yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-    }
-    else if (rival == 1) {
-        rps.innerHTML = 'Papier !</br>Rejouez :O';
-    }
-    else if (rival == 2) {
-        rps.innerHTML = 'Ciseaux !</br>Point pour moi >:)';
-        hisScore ++;
-        hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
+    switch (rival) {
+        case 0:
+            rps.innerHTML = 'Pierre !</br>Point pour toi \\o/';
+            yourScore ++;
+            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
+            break;
+        case 1:
+            rps.innerHTML = 'Papier !</br>Rejouez :O';
+            break;
+        case 2:
+            rps.innerHTML = 'Ciseaux !</br>Point pour moi >:)';
+            hisScore ++;
+            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
+            break;
+        default:
+            rps.innerHTML = "Erreur dans le switch :'(";
+            break;
     }
     if (yourScore == win) {
         let result = 0
@@ -204,18 +214,22 @@ function scissors() {
     p.classList.add('hidden');
     s.classList.add('hidden');
     ok.classList.remove('hidden');
-    if (rival == 0) {
-        rps.innerHTML = 'Pierre !</br>Point pour moi >:)';
-        hisScore ++;
-        hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-    }
-    else if (rival == 1) {
-        rps.innerHTML = 'Papier !</br>Point pour toi \\o/';
-        yourScore ++;
-        yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-    }
-    else if (rival == 2) {
-        rps.innerHTML = 'Ciseaux !</br>Rejouez :O';
+    switch (rival) {
+        case 0:
+            rps.innerHTML = 'Pierre !</br>Point pour moi >:)';
+            hisScore ++;
+            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
+            break;
+        case 1:
+            rps.innerHTML = 'Papier !</br>Point pour toi \\o/';
+            yourScore ++;
+            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
+            break;
+        case 2:
+            rps.innerHTML = 'Ciseaux !</br>Rejouez :O';
+            break;
+        default:
+            rps.innerHTML = "Erreur dans le switch :'(";
     }
     if (yourScore == win) {
         let result = 0
@@ -230,7 +244,7 @@ function scissors() {
                 result = 'Ciseaux';
                 break;
             default:
-                "Erreur dans le switch :'(";
+                result = "Erreur dans le switch :'(";
                 break;
         }
         rps.innerHTML = result + " !</br>gg t'as gagné !";
@@ -281,6 +295,4 @@ function again() {
     hisScore = 0;
     yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
     hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-
 }
-
