@@ -4,6 +4,9 @@ let p = document.getElementById('p');
 let s = document.getElementById('s');
 let ok = document.getElementById('ok');
 let replay = document.getElementById('replay');
+let endl = document.getElementById('endless');
+let rset = document.getElementById('reset');
+let difficulty = document.getElementById('difficulty');
 let yourScoreP = document.getElementById('score');
 let hisScoreP = document.getElementById('a-score');
 let bo1 = document.getElementById('bo1');
@@ -27,6 +30,9 @@ p.onclick = paper;
 s.onclick = scissors;
 ok.onclick = okay;
 replay.onclick = again;
+endl.onclick = endless;
+rset.onclick = reset;
+diff.onclick = diff;
 bo1.onclick = BO1;
 bo3.onclick = BO3;
 bo5.onclick = BO5;
@@ -39,6 +45,7 @@ function BO1() {
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
     bo9.classList.add('hidden');
+    endl.classList.add('hidden');
     r.classList.remove('hidden');
     p.classList.remove('hidden');
     s.classList.remove('hidden');
@@ -51,6 +58,7 @@ function BO3() {
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
     bo9.classList.add('hidden');
+    endl.classList.add('hidden');
     r.classList.remove('hidden');
     p.classList.remove('hidden');
     s.classList.remove('hidden');
@@ -63,6 +71,7 @@ function BO5() {
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
     bo9.classList.add('hidden');
+    endl.classList.add('hidden');
     r.classList.remove('hidden');
     p.classList.remove('hidden');
     s.classList.remove('hidden');
@@ -75,10 +84,24 @@ function BO9() {
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
     bo9.classList.add('hidden');
+    endl.classList.add('hidden');
     r.classList.remove('hidden');
     p.classList.remove('hidden');
     s.classList.remove('hidden');
     win = 5;
+}
+
+function endless() {
+    bo1.classList.add('hidden');
+    bo3.classList.add('hidden');
+    bo5.classList.add('hidden');
+    bo9.classList.add('hidden');
+    endl.classList.add('hidden');
+    r.classList.remove('hidden');
+    p.classList.remove('hidden');
+    s.classList.remove('hidden');
+    rset.classList.remove('hidden');
+    win = Infinity;
 }
 
 function rock() {
@@ -290,6 +313,7 @@ function again() {
     bo3.classList.remove('hidden');
     bo5.classList.remove('hidden');
     bo9.classList.remove('hidden');
+    endl.classList.remove('hidden');
     reward.classList.add('hidden');
     rps.innerHTML = 'Pierre-papier-ciseaux !</br>Combien de manches gagnantes ?';
     win = 0;
@@ -298,6 +322,24 @@ function again() {
     yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
     hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
 
+}
+
+function reset() {
+    r.classList.add('hidden');
+    p.classList.add('hidden');
+    s.classList.add('hidden');
+    rset.classList.add('hidden');
+    bo1.classList.remove('hidden');
+    bo3.classList.remove('hidden');
+    bo5.classList.remove('hidden');
+    bo9.classList.remove('hidden');
+    endl.classList.remove('hidden');
+    rps.innerHTML = 'Pierre-papier-ciseaux !</br>Combien de manches gagnantes ?';
+    win = 0;
+    yourScore = 0;
+    hisScore = 0;
+    yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
+    hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
 }
 
 function plzStop() {
