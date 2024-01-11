@@ -1,259 +1,116 @@
+////
 // Get HTML elements into objects
 
-let rps = document.getElementById('rps');
-let r = document.getElementById('r');
-let p = document.getElementById('p');
-let s = document.getElementById('s');
-let ok = document.getElementById('ok');
-let replay = document.getElementById('replay');
-let yourScoreP = document.getElementById('score');
-let hisScoreP = document.getElementById('a-score');
-let bo1 = document.getElementById('bo1');
-let bo3 = document.getElementById('bo3');
-let bo5 = document.getElementById('bo5');
-let bo9 = document.getElementById('bo9');
-let yourScore = 0;
-let hisScore = 0;
+let idElements = document.querySelectorAll('[id]');
+
+for (let i = 0; i < idElements.length; i++) {
+    window[idElements[i].id] = idElements[i];
+}
+
+
+////
+// Thoses buttons define the number of wins required and starts the game
+
 let win = 0;
+bo1.onclick = function() {start();win = 1};
+bo3.onclick = function() {start();win = 2};
+bo5.onclick = function() {start();win = 3};
+bo9.onclick = function() {start();win = 5};
 
-// Give thoses elements a behaviour on click
-
-r.onclick = rock;
-p.onclick = paper;
-s.onclick = scissors;
-ok.onclick = okay;
-replay.onclick = again;
-bo1.onclick = BO1;
-bo3.onclick = BO3;
-bo5.onclick = BO5;
-bo9.onclick = BO9;
-
-// BO buttons will define the number of wins needed and replace themselves with rock-paper-scissors buttons
-
-function BO1() {
+function start() {
     rps.innerHTML = 'Pierre-Papier-Ciseaux !'
     bo1.classList.add('hidden');
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
     bo9.classList.add('hidden');
-    r.classList.remove('hidden');
-    p.classList.remove('hidden');
-    s.classList.remove('hidden');
-    win = 1;
+    rock.classList.remove('hidden');
+    paper.classList.remove('hidden');
+    scissors.classList.remove('hidden');
 }
 
-function BO3() {
-    rps.innerHTML = 'Pierre-Papier-Ciseaux !'
-    bo1.classList.add('hidden');
-    bo3.classList.add('hidden');
-    bo5.classList.add('hidden');
-    bo9.classList.add('hidden');
-    r.classList.remove('hidden');
-    p.classList.remove('hidden');
-    s.classList.remove('hidden');
-    win = 2;
-}
 
-function BO5() {
-    rps.innerHTML = 'Pierre-Papier-Ciseaux !'
-    bo1.classList.add('hidden');
-    bo3.classList.add('hidden');
-    bo5.classList.add('hidden');
-    bo9.classList.add('hidden');
-    r.classList.remove('hidden');
-    p.classList.remove('hidden');
-    s.classList.remove('hidden');
-    win = 3;
-}
-
-function BO9() {
-    rps.innerHTML = 'Pierre-Papier-Ciseaux !'
-    bo1.classList.add('hidden');
-    bo3.classList.add('hidden');
-    bo5.classList.add('hidden');
-    bo9.classList.add('hidden');
-    r.classList.remove('hidden');
-    p.classList.remove('hidden');
-    s.classList.remove('hidden');
-    win = 5;
-}
-
+////
 // rival will randomly define the "opponent" choice, which will determine which text appears and score incrementation if there is one. it 
 // will then check if someone is winning, and end the game if needed.
 // 0 rock
 // 1 paper
 // 2 scissors
 
-function rock() {
-    let rival = Math.floor(Math.random() * 3);
-    r.classList.add('hidden');
-    p.classList.add('hidden');
-    s.classList.add('hidden');
+let yourScore = 0;
+let hisScore = 0;
+let player = undefined;
+rock.onclick = function() {player = "rock";play()};
+paper.onclick = function() {player = "paper";play()};
+scissors.onclick = function() {player = "scissors";play()};
+
+function play() {
+
+    rock.classList.add('hidden');
+    paper.classList.add('hidden');
+    scissors.classList.add('hidden');
     ok.classList.remove('hidden');
-    if (rival == 0) {
-            rps.innerHTML = 'Pierre !</br>Rejouez :O';
-    }
-    else if (rival == 1) {
-            rps.innerHTML = 'Papier !</br>Point pour moi >:)';
+
+    let rival = Math.floor(Math.random() * 3);
+    let rivalResult = undefined;
+    let result = undefined;
+    switch (rival) {
+        case 0:
+            rivalResult = 'Pierre';
+            rival = "rock";
+            break;
+        case 1:
+            rivalResult = 'Papier';
+            rival = "paper";
+            break;
+        case 2:
+            rivalResult = 'Ciseaux';
+            rival = "scissors";
+            break;
+        default:
+            rivalResult = "undefined rivalResult";
+            break;
+    };
+    switch (player+rival) {
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+            result = 'Rejouez :O';
+             break;
+        case "rockpaper":
+        case "paperscissors":
+        case "scissorsrock":
+            result = 'Point pour moi >:)';
             hisScore ++;
-            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-    }
-    else if (rival == 2) {
-        rps.innerHTML = ' Ciseaux !</br>Point pour toi \\o/';
-        yourScore ++;
-        yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-    }
-    if (yourScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                result = "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>gg t'as gagné !";
-    }
+            break;
+        case "paperrock":
+        case "scissorspaper":
+        case "rockscissors":
+            result = 'Point pour toi \\o/';
+            yourScore ++;
+            break;
+        default:
+            result = "undefined result";
+            break;
+    };
+
     if (hisScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                result = "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
+        result = "T'as perdu déso pas déso"
     }
+    else if (yourScore == win) {
+        result = "Gg t'as gagné !"
+    };
+
+    rps.innerHTML = rivalResult + " !</br>" + result;
+    score.innerHTML = yourScore;
+    aScore.innerHTML = hisScore;
 }
 
-function paper() {
-    let rival = Math.floor(Math.random() * 3);
-    r.classList.add('hidden');
-    p.classList.add('hidden');
-    s.classList.add('hidden');
-    ok.classList.remove('hidden');
-    if (rival == 0) {
-            rps.innerHTML = 'Pierre !</br>Point pour toi \\o/';
-            yourScore ++;
-            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-    }
-    else if (rival == 1) {
-            rps.innerHTML = 'Papier !</br>Rejouez :O';
-    }
-    else if (rival == 2) {
-            rps.innerHTML = 'Ciseaux !</br>Point pour moi >:)';
-            hisScore ++;
-            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-    }
-    if (yourScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                result = "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>gg t'as gagné !";
-    }
-    if (hisScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                result = "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
-    }
-}
 
-function scissors() {
-    let rival = Math.floor(Math.random() * 3);
-    r.classList.add('hidden');
-    p.classList.add('hidden');
-    s.classList.add('hidden');
-    ok.classList.remove('hidden');
-    if (rival == 0) {
-            rps.innerHTML = 'Pierre !</br>Point pour moi >:)';
-            hisScore ++;
-            hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
-    }
-    else if (rival == 1) {
-            rps.innerHTML = 'Papier !</br>Point pour toi \\o/';
-            yourScore ++;
-            yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-    }
-    else if (rival == 2) {
-            rps.innerHTML = 'Ciseaux !</br>Rejouez :O';
-    }
-    if (yourScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                result = "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>gg t'as gagné !";
-    }
-    if (hisScore == win) {
-        let result = 0
-        switch (rival) {
-            case 0:
-                result = 'Pierre';
-                break;
-            case 1:
-                result = 'Papier';
-                break;
-            case 2:
-                result = 'Ciseaux';
-                break;
-            default:
-                result = "Erreur dans le switch :'(";
-                break;
-        }
-        rps.innerHTML = result + " !</br>t'as perdu déso pas déso";
-    }
-}
+////
+// Buttons for between rounds and game over
+
+ok.onclick = okay;
+replay.onclick = again;
 
 function okay() {
     ok.classList.add('hidden');
@@ -262,9 +119,9 @@ function okay() {
         rps.innerHTML = 'Rejouer ?';
     }
     else {
-        r.classList.remove('hidden');
-        p.classList.remove('hidden');
-        s.classList.remove('hidden');
+        rock.classList.remove('hidden');
+        paper.classList.remove('hidden');
+        scissors.classList.remove('hidden');
         rps.innerHTML = 'Pierre-papier-ciseaux !';
     }
 }
@@ -279,7 +136,7 @@ function again() {
     win = 0;
     yourScore = 0;
     hisScore = 0;
-    yourScoreP.innerHTML = 'Votre Score : ' + yourScore;
-    hisScoreP.innerHTML = 'Score Adverse : ' + hisScore;
+    score.innerHTML = yourScore;
+    aScore.innerHTML = hisScore;
 }
 
