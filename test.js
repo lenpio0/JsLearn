@@ -18,7 +18,7 @@ bo5.onclick = function() {start();win = 3};
 bo9.onclick = function() {start();win = 5};
 
 function start() {
-    rps.innerHTML = 'Pierre-Papier-Ciseaux !'
+    rps.innerHTML = 'Pierre-Papier-Ciseaux !</br>À toi de jouer !'
     bo1.classList.add('hidden');
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
