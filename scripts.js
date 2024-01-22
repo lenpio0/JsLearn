@@ -122,7 +122,7 @@ function okay() {
         rock.classList.remove('hidden');
         paper.classList.remove('hidden');
         scissors.classList.remove('hidden');
-        rps.innerHTML = 'Pierre-papier-ciseaux !';
+        rps.innerHTML = 'Pierre-Papier-Ciseaux !';
     }
 }
 
@@ -132,7 +132,7 @@ function again() {
     bo3.classList.remove('hidden');
     bo5.classList.remove('hidden');
     bo9.classList.remove('hidden');
-    rps.innerHTML = 'Pierre-papier-ciseaux !</br>Combien de manches gagnantes ?';
+    rps.innerHTML = 'Pierre-Papier-Ciseaux !</br>Combien de manches gagnantes ?';
     win = 0;
     yourScore = 0;
     hisScore = 0;
