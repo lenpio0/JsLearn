@@ -23,6 +23,7 @@ function start() {
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
     bo9.classList.add('hidden');
+    splash.classList.add('hidden')
     rock.classList.remove('hidden');
     paper.classList.remove('hidden');
     scissors.classList.remove('hidden');
@@ -39,9 +40,9 @@ function start() {
 let yourScore = 0;
 let hisScore = 0;
 let player = undefined;
-rock.onclick = function() {player = "rock";play()};
-paper.onclick = function() {player = "paper";play()};
-scissors.onclick = function() {player = "scissors";play()};
+rock.onclick = function() {player = "rock";yourock.classList.remove('hidden');play()};
+paper.onclick = function() {player = "paper";youpaper.classList.remove('hidden');play()};
+scissors.onclick = function() {player = "scissors";youscissors.classList.remove('hidden');play()};
 
 function play() {
 
@@ -53,23 +54,28 @@ function play() {
     let rival = Math.floor(Math.random() * 3);
     let rivalResult = undefined;
     let result = undefined;
+
     switch (rival) {
         case 0:
             rivalResult = 'Pierre';
             rival = "rock";
+            jorock.classList.remove('hidden');
             break;
         case 1:
             rivalResult = 'Papier';
             rival = "paper";
+            jopaper.classList.remove('hidden');
             break;
         case 2:
             rivalResult = 'Ciseaux';
             rival = "scissors";
+            joscissors.classList.remove('hidden');
             break;
         default:
             rivalResult = "undefined rivalResult";
             break;
     };
+
     switch (player+rival) {
         case "rockrock":
         case "paperpaper":
@@ -114,6 +120,12 @@ replay.onclick = again;
 
 function okay() {
     ok.classList.add('hidden');
+    yourock.classList.add('hidden');
+    youpaper.classList.add('hidden');
+    youscissors.classList.add('hidden');
+    jorock.classList.add('hidden');
+    jopaper.classList.add('hidden');
+    joscissors.classList.add('hidden');
     if (yourScore == win || hisScore == win) {
         replay.classList.remove('hidden');
         rps.innerHTML = 'Rejouer ?';
@@ -132,6 +144,7 @@ function again() {
     bo3.classList.remove('hidden');
     bo5.classList.remove('hidden');
     bo9.classList.remove('hidden');
+    splash.classList.remove('hidden')
     rps.innerHTML = 'Pierre-Papier-Ciseaux !</br>Combien de manches gagnantes ?';
     win = 0;
     yourScore = 0;

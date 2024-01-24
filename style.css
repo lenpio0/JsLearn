@@ -45,8 +45,11 @@ body {
 }
 
 .game-container {
-    height: 20%;
+    width: 80%;
+    height: 30%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -86,8 +89,78 @@ body {
     display: none;
 }
 
-.paper {
+#rock, #yourock, #jorock, .splash-rock {
+    background-image: url('images/rock.svg');
+}
+
+#paper, #youpaper{
+    background-image: url('images/paper.svg');
     transform: scaleX(-1);
+}
+
+#jopaper {
+    background-image: url('images/paper.svg');
+}
+
+#scissors, #youscissors, #joscissors, .splash-scissors {
+    background-image: url('images/scissors.svg');
+}
+
+#splash {
+    height: 50%;
+}
+
+#yourock, #youpaper, #youscissors {
+rotate: 90deg;
+}
+
+#jopaper {
+    rotate: 270deg;
+}
+
+#jorock, #joscissors {
+    rotate: 270deg;
+    transform: scaleX(-1);
+}
+
+.splash-card {
+    aspect-ratio: 1;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    color: #00699d;
+    padding: 8px 16px;
+    background-color: #ffffffcf;
+    border-radius: 15px;
+}
+
+.splash-rock {
+    rotate: 90deg;
+}
+
+.splash-paper {
+    background-image: url('images/paper.svg');
+    position: relative;
+    top: 3px;
+    left: -26px;
+    rotate: -30deg;
+    transform: none;
+}
+
+.splash-scissors {
+    position: relative;
+    top: -36px;
+    left: 24px;
+    rotate: -145deg;
+    transform: scaleX(-1);
+}
+
+#vscards {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
 }
 
 @media (min-width: 768px) {
