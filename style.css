@@ -17,6 +17,7 @@ body {
 
 .scoreboard {
     width: 100%;
+    max-width: 1024px;
     display: flex;
     justify-content: space-around;
     position: fixed;
@@ -32,13 +33,7 @@ body {
     border-radius: 0 0 15px 15px;
 }
 
-.score-text {
-    color: #00699d;
-    font-size: 20px;
-    line-height: 24px;
-}
-
-.score-points {
+.score-text, .score-points {
     color: #00699d;
     font-size: 20px;
     line-height: 24px;
@@ -60,6 +55,7 @@ body {
 .button-group {
     height: 20%;
     width: 75%;
+    max-width: 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -165,6 +161,48 @@ rotate: 90deg;
 
 @media (min-width: 768px) {
     body {
-        font-size: 24px;
+        font-size: 28px;
+    }
+    .button-group {
+        width: 60%;
+    }
+    .score-panel {
+        padding: 12px 24px;
+    }
+    .score-text, .score-points {
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .choice-button {
+        font-size: 32px;
+        height: 60px;
+        padding: 8px 20px;
+    }
+    .game-button {
+        height: 96px;
+        width: 96px;
+    }
+    #vscards {
+        width: 50%;
+    }
+    #splash {
+        height: 80%;
+    }
+    .splash-card {
+        height: 80px;
+    }
+    .splash-paper {
+        top: 14px;
+        left: -60px;
+    }
+    .splash-scissors {
+        top: -64px;
+        left: 58px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .button-group {
+        width: 50%;
     }
 }

@@ -80,18 +80,18 @@ function play() {
         case "rockrock":
         case "paperpaper":
         case "scissorsscissors":
-            result = 'Rejouez :O';
+            result = 'Rejouez !';
              break;
         case "rockpaper":
         case "paperscissors":
         case "scissorsrock":
-            result = 'Point pour moi >:)';
+            result = 'Point pour John !';
             hisScore ++;
             break;
         case "paperrock":
         case "scissorspaper":
         case "rockscissors":
-            result = 'Point pour toi \\o/';
+            result = 'Point pour toi !';
             yourScore ++;
             break;
         default:
@@ -100,10 +100,10 @@ function play() {
     };
 
     if (hisScore == win) {
-        result = "T'as perdu déso pas déso"
+        result = "Tu as perdu..."
     }
     else if (yourScore == win) {
-        result = "Gg t'as gagné !"
+        result = "Tu as gagné !"
     };
 
     rps.innerHTML = rivalResult + " !</br>" + result;
