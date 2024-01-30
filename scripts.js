@@ -23,11 +23,17 @@ function start() {
     bo3.classList.add('hidden');
     bo5.classList.add('hidden');
     bo9.classList.add('hidden');
-    splash.classList.add('hidden')
+    splash.classList.add('hidden');
     rock.classList.remove('hidden');
     paper.classList.remove('hidden');
     scissors.classList.remove('hidden');
-}
+    window.requestAnimationFrame(function (time) {
+        window.requestAnimationFrame(function (time) {
+            scoreboard.children[0].classList.add('fade-top');
+            scoreboard.children[1].classList.add('fade-top');
+        });
+    });
+};
 
 
 ////
@@ -40,9 +46,24 @@ function start() {
 let yourScore = 0;
 let hisScore = 0;
 let player = undefined;
-rock.onclick = function() {player = "rock";yourock.classList.remove('hidden');play()};
-paper.onclick = function() {player = "paper";youpaper.classList.remove('hidden');play()};
-scissors.onclick = function() {player = "scissors";youscissors.classList.remove('hidden');play()};
+
+rock.onclick = function() {
+    player = "rock";
+    yourock.classList.remove('hidden');
+    play();
+};
+
+paper.onclick = function() {
+    player = "paper";
+    youpaper.classList.remove('hidden');
+    play();
+};
+
+scissors.onclick = function() {
+    player = "scissors";
+    youscissors.classList.remove('hidden');
+    play();
+};
 
 function play() {
 
@@ -127,6 +148,12 @@ function okay() {
     jopaper.classList.add('hidden');
     joscissors.classList.add('hidden');
     if (yourScore == win || hisScore == win) {
+        window.requestAnimationFrame(function (time) {
+            window.requestAnimationFrame(function (time) {
+                scoreboard.children[0].classList.add('fade-top-back');
+                scoreboard.children[1].classList.add('fade-top-back');
+            });
+        });
         replay.classList.remove('hidden');
         rps.innerHTML = 'Rejouer ?';
     }
@@ -144,7 +171,9 @@ function again() {
     bo3.classList.remove('hidden');
     bo5.classList.remove('hidden');
     bo9.classList.remove('hidden');
-    splash.classList.remove('hidden')
+    splash.classList.remove('hidden');
+    scoreboard.children[0].classList.remove('fade-top-back');
+    scoreboard.children[1].classList.remove('fade-top-back');
     rps.innerHTML = 'Pierre-Papier-Ciseaux !</br>Combien de manches gagnantes ?';
     win = 0;
     yourScore = 0;

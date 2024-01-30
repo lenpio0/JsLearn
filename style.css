@@ -15,13 +15,14 @@ body {
     font-size: 18px;
 }
 
-.scoreboard {
+#scoreboard {
     width: 100%;
     max-width: 1024px;
     display: flex;
     justify-content: space-around;
     position: fixed;
     top: 0;
+    overflow: hidden;
 }
 
 .score-panel {
@@ -31,6 +32,8 @@ body {
     padding: 8px 16px;
     background-color: #ffffffcf;
     border-radius: 0 0 15px 15px;
+    position: relative;
+    opacity: 0;
 }
 
 .score-text, .score-points {
@@ -50,6 +53,7 @@ body {
 
 #rps {
     text-align: center;
+    transition: all 2s;
 }
 
 .button-group {
@@ -107,15 +111,15 @@ body {
 }
 
 #yourock, #youpaper, #youscissors {
-rotate: 90deg;
+    rotate: 90deg;
 }
 
-#jopaper {
+#jorock, #jopaper, #joscissors {
     rotate: 270deg;
+    opacity: 0;
 }
 
 #jorock, #joscissors {
-    rotate: 270deg;
     transform: scaleX(-1);
 }
 
@@ -130,10 +134,12 @@ rotate: 90deg;
     padding: 8px 16px;
     background-color: #ffffffcf;
     border-radius: 15px;
+    opacity: 0;
 }
 
 .splash-rock {
     rotate: 90deg;
+    animation-delay: 0.3s !important;
 }
 
 .splash-paper {
@@ -143,6 +149,7 @@ rotate: 90deg;
     left: -26px;
     rotate: -30deg;
     transform: none;
+    animation-delay: 0.6s !important;
 }
 
 .splash-scissors {
@@ -151,6 +158,7 @@ rotate: 90deg;
     left: 24px;
     rotate: -145deg;
     transform: scaleX(-1);
+    animation-delay: 0.9s !important;
 }
 
 #vscards {
@@ -158,6 +166,12 @@ rotate: 90deg;
     display: flex;
     justify-content: space-between;
 }
+
+
+
+
+
+/* RESPONSIVE MEDIA QUERIES */
 
 @media (min-width: 768px) {
     body {
@@ -204,5 +218,93 @@ rotate: 90deg;
 @media (min-width: 1024px) {
     .button-group {
         width: 50%;
+    }
+}
+
+
+
+
+
+/* ANIMATIONS */
+
+.fade-left {
+    animation: fade-left 0.5s;
+}
+
+@keyframes fade-left {
+    from {
+        left: -20%;
+        opacity: 0;
+        position: relative;
+    }
+
+    to {
+        left: 0;
+        opacity: 100%;
+        position: relative;
+    }
+}
+
+.fade-right {
+    animation: fade-right 0.5s 0.5s forwards;
+}
+
+@keyframes fade-right {
+    from {
+        right: -20%;
+        opacity: 0;
+        position: relative;
+    }
+
+    to {
+        right: 0;
+        opacity: 100%;
+        position: relative;
+    }
+}
+
+.fade-top {
+    animation: fade-top 0.5s forwards;
+}
+
+@keyframes fade-top {
+    from {
+        top: -100%;
+        opacity: 0;
+    }
+    
+    to {
+        top: 0;
+        opacity: 100%;
+    }
+}
+
+.fade-top-back {
+    animation: fade-top-back 0.5s forwards;
+}
+
+@keyframes fade-top-back {
+    from {
+        top: 0;
+        opacity: 100%;
+    }
+    
+    to {
+        top: -100%;
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    animation: fade-in 0.5s forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 100%;
     }
 }

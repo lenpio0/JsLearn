@@ -12,7 +12,7 @@
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div class="scoreboard">
+    <div id="scoreboard">
         <div class="score-panel">
             <span class="score-text">VOUS</span>
             <span id="score" class="score-points">0</span>
@@ -25,17 +25,17 @@
     <div></div>
     <div class="game-container">
         <div id="splash">
-            <span class="splash-card splash-rock"></span>
-            <span class="splash-card splash-paper"></span>
-            <span class="splash-card splash-scissors"></span>    
+            <span class="splash-card splash-rock fade-in"></span>
+            <span class="splash-card splash-paper fade-in"></span>
+            <span class="splash-card splash-scissors fade-in"></span>    
         </div>
         <div id="vscards">        
-            <span id="yourock" class="game-button hidden"></span>
-            <span id="youpaper" class="game-button hidden"></span>
-            <span id="youscissors" class="game-button hidden"></span>
-            <span id="jorock" class="game-button hidden"></span>
-            <span id="jopaper" class="game-button hidden"></span>
-            <span id="joscissors" class="game-button hidden"></span>
+            <span id="yourock" class="game-button fade-left hidden"></span>
+            <span id="youpaper" class="game-button fade-left hidden"></span>
+            <span id="youscissors" class="game-button fade-left hidden"></span>
+            <span id="jorock" class="game-button fade-right hidden"></span>
+            <span id="jopaper" class="game-button fade-right hidden"></span>
+            <span id="joscissors" class="game-button fade-right hidden"></span>
         </div>
         <p id="rps">Pierre-Papier-Ciseaux !<br>Combien de manches gagnantes ?</p>
     </div>
