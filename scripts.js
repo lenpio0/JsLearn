@@ -27,12 +27,11 @@ function start() {
     rock.classList.remove('hidden');
     paper.classList.remove('hidden');
     scissors.classList.remove('hidden');
-    window.requestAnimationFrame(function (time) {
-        window.requestAnimationFrame(function (time) {
-            scoreboard.children[0].classList.add('fade-top');
-            scoreboard.children[1].classList.add('fade-top');
-        });
-    });
+    rpsChange();
+    setTimeout( () => {
+        scoreboard.children[0].classList.add('fade-top');
+        scoreboard.children[1].classList.add('fade-top');
+    }, 300);
 };
 
 
@@ -107,13 +106,21 @@ function play() {
         case "paperscissors":
         case "scissorsrock":
             result = 'Point pour John !';
-            hisScore ++;
+            setTimeout( () => {
+                aScore.classList.add('score-pop');
+                hisScore ++;
+                aScore.innerHTML = hisScore;
+            }, 900);
             break;
         case "paperrock":
         case "scissorspaper":
         case "rockscissors":
             result = 'Point pour toi !';
-            yourScore ++;
+            setTimeout( () => {
+                score.classList.add('score-pop');
+                yourScore ++;
+                score.innerHTML = yourScore;
+            }, 900);
             break;
         default:
             result = "undefined result";
@@ -128,13 +135,14 @@ function play() {
     };
 
     rps.innerHTML = rivalResult + " !</br>" + result;
-    score.innerHTML = yourScore;
-    aScore.innerHTML = hisScore;
+    score.classList.remove('score-pop');
+    aScore.classList.remove('score-pop');
+    rpsChange();
 }
 
 
 ////
-// Buttons for between rounds and game over
+// Buttons for between rounds and game over + function to animate game text
 
 ok.onclick = okay;
 replay.onclick = again;
@@ -147,13 +155,12 @@ function okay() {
     jorock.classList.add('hidden');
     jopaper.classList.add('hidden');
     joscissors.classList.add('hidden');
+    rpsChange();
     if (yourScore == win || hisScore == win) {
-        window.requestAnimationFrame(function (time) {
-            window.requestAnimationFrame(function (time) {
-                scoreboard.children[0].classList.add('fade-top-back');
-                scoreboard.children[1].classList.add('fade-top-back');
-            });
-        });
+        setTimeout( () => {
+            scoreboard.children[0].classList.add('fade-top-back');
+            scoreboard.children[1].classList.add('fade-top-back');
+        }, 300);
         replay.classList.remove('hidden');
         rps.innerHTML = 'Rejouer ?';
     }
@@ -172,13 +179,24 @@ function again() {
     bo5.classList.remove('hidden');
     bo9.classList.remove('hidden');
     splash.classList.remove('hidden');
-    scoreboard.children[0].classList.remove('fade-top-back');
-    scoreboard.children[1].classList.remove('fade-top-back');
     rps.innerHTML = 'Pierre-Papier-Ciseaux !</br>Combien de manches gagnantes ?';
     win = 0;
     yourScore = 0;
     hisScore = 0;
     score.innerHTML = yourScore;
     aScore.innerHTML = hisScore;
+    rpsChange();
+    setTimeout( () => {
+        scoreboard.children[0].classList.remove('fade-top-back');
+        scoreboard.children[1].classList.remove('fade-top-back');
+    }, 300);
 }
 
+function rpsChange() {
+    rps.classList.add('text-pop');
+    setTimeout( () => {
+        rps.classList.remove('text-pop');
+    }, 300);
+}
+
+// Add something to handle button spamming
