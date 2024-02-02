@@ -166,15 +166,37 @@ body {
     justify-content: space-between;
 }
 
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #00000055;
+    padding: 4px 0;
+}
 
+.footer-text {
+    text-align: center;
+    font-size: 14px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
+.footer-text a {
+    text-decoration: underline;
+}
 
+.footer-text a:hover {
+    text-decoration: none;
+    color:lightpink;
+}
 
 /* RESPONSIVE MEDIA QUERIES */
 
 @media (min-width: 768px) {
     body {
         font-size: 28px;
+    }
+    .footer-text {
+        font-size: 16px;
     }
     .button-group {
         width: 60%;
